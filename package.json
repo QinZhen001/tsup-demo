@@ -2,19 +2,26 @@
   "name": "test-aaa",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "type": "module",
-  "scripts": {
-    "build:esbuild": "node scripts/build.js",
-    "build:tsup": "tsup",
-    "build:dts":"tsup src/index.ts --dts"
+  "engines": {
+    "node": ">= 16.10"  
   },
-  "author": "",
+  "scripts": {
+    "build": "unbuild"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/perform/web/index.mjs",
+      "require": "./dist/perform/web/index.cjs"
+    }
+  },
+  "main": "./dist/perform/web/index.cjs",
+  "types": "./dist/perform/web/index.d.ts",
+  "files": ["dist"],
+  "author": "qz",
   "license": "ISC",
   "dependencies": {
-    "esbuild": "^0.21.0",
-    "tsup": "^8.0.2",
     "typescript": "^5.4.5",
-    "@swc/core": "^1.5.3"
+    "unbuild": "^3.5.0"
   }
 }
